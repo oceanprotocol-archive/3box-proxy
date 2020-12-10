@@ -9,7 +9,6 @@ exports.handler = async (event) => {
   const apiUri = "https://ipfs.3box.io";
 
   try {
-    console.log(event);
     const id = event.queryStringParameters.series
       ? event.queryStringParameters.series
       : event.path.split("/")[2];
@@ -21,6 +20,7 @@ exports.handler = async (event) => {
       }`
     );
 
+    console.log('3box response',response)
     // upon 404, fail silently and return
     if (!response || !response.ok || response.status !== 200) {
       return {
