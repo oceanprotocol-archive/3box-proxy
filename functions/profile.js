@@ -12,11 +12,11 @@ exports.handler = async (event) => {
     const id = event.queryStringParameters.series
       ? event.queryStringParameters.series
       : event.path.split("/")[2];
-    console.log("path",event.path,event.path.split("/"))
+
     const response = await fetch(
       `${apiUri}/profile?address=${id}`
     );
-    console.log('3box response',response)
+
     // upon 404, fail silently and return
     if (!response || !response.ok || response.status !== 200) {
       return {
