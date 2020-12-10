@@ -1,6 +1,11 @@
 const fetch = require("node-fetch");
 const qs = require("querystring");
 
+const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'GET'
+  };
 exports.handler = async (event) => {
   const apiUri = "https://ipfs.3box.io";
 
@@ -15,6 +20,7 @@ exports.handler = async (event) => {
     if (!response || !response.ok || response.status !== 200) {
       return {
         statusCode: 200,
+        headers,
         body: "error",
       };
     }
@@ -22,11 +28,13 @@ exports.handler = async (event) => {
     const responseJson = await response.json();
     return {
       statusCode: 200,
+      headers,
       body: JSON.stringify(responseJson),
     };
   } catch (error) {
     return {
       statusCode: 200,
+      headers,
       body: "error",
     };
   }
