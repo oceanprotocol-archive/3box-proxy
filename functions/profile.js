@@ -18,7 +18,7 @@ exports.handler = async (event) => {
         (event.queryStringParameters, event.queryStringParameters.id)
       }`
     );
-
+    console.log('3box response',response)
     // upon 404, fail silently and return
     if (!response || !response.ok || response.status !== 200) {
       return {
