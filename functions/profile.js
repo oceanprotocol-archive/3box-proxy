@@ -12,7 +12,6 @@ exports.handler = async (event) => {
     const id = event.queryStringParameters.series
       ? event.queryStringParameters.series
       : event.path.split("/")[2];
-    console.log("id", id);
 
     const response = await fetch(
       `${apiUri}/profile?address=${
@@ -20,11 +19,11 @@ exports.handler = async (event) => {
       }`
     );
 
-    console.log('3box response',response)
     // upon 404, fail silently and return
     if (!response || !response.ok || response.status !== 200) {
       return {
         statusCode: 200,
+        headers,
         body: "error",
       };
     }
@@ -32,12 +31,14 @@ exports.handler = async (event) => {
     const responseJson = await response.json();
     return {
       statusCode: 200,
+      headers,
       body: JSON.stringify(responseJson),
     };
   } catch (error) {
     console.error(error);
     return {
       statusCode: 200,
+      headers,
       body: "error",
     };
   }
