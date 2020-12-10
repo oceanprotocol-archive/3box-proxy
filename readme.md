@@ -1,5 +1,5 @@
 [![banner](https://raw.githubusercontent.com/oceanprotocol/art/master/github/repo-banner%402x.png)](https://oceanprotocol.com)
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/63d9c542-6e42-42e1-b648-1409d1bd88af/deploy-status)](https://app.netlify.com/sites/3box-proxy/deploys)
 <h1 align="center">3box-proxy</h1>
 
 > Endpoint to handle 3box calls.
