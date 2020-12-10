@@ -1,5 +1,4 @@
 const fetch = require("node-fetch");
-const qs = require("querystring");
 
 const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -11,9 +10,11 @@ exports.handler = async (event) => {
 
   try {
     console.log(event)
-    const { id } = qs.parse(event.queryStringParameters);
+    const id = event.queryStringParameters.series
+    ? event.queryStringParameters.series
+    : event.path.split("/")[2];
     console.log(id);
-    console.log(event.queryStringParameters,event.queryStringParameters.id)
+    
     const response = await fetch(`${apiUri}/profile?address=${event.queryStringParameters,event.queryStringParameters.id}`);
 
     // upon 404, fail silently and return
