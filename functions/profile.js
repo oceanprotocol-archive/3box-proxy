@@ -10,7 +10,7 @@ exports.handler = async (event) => {
   const apiUri = "https://ipfs.3box.io";
 
   try {
-     // console.log(event)
+    console.log(event)
     const { id } = qs.parse(event.queryStringParameters);
     console.log(id);
     console.log(event.queryStringParameters,event.queryStringParameters.id)
