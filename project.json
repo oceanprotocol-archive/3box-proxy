@@ -1,0 +1,14 @@
+{
+    "name": "@oceanprotocol/3box-proxy",
+    "description": "A proxy to hide unwanted http errors from the browser console.",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "license": "Apache-2.0",
+  
+    "devDependencies": {
+
+    }
+  }
